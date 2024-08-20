@@ -46,7 +46,7 @@ export default {
     props: ["logo"],
     data: function () {
         return {
-            color: "#aaa",
+            color: "#fff",
         };
     },
     methods: {
