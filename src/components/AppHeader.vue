@@ -1,5 +1,5 @@
 <template>
-    <div class="header" :style="{ '--light': color }">
+    <div class="header" :style="{ '--dark': color }">
         <h2 class="logo">{{ logo }}</h2>
         <ul class="">
             <li>
@@ -32,10 +32,10 @@
                     <slot tag="li">Journal</slot>
                 </router-link>
             </li>
-            <div class="moodcolors" title="Change Mood">
+            <!-- <div class="moodcolors" title="Change Mood">
                 <button @click="changemood" data-color="#aaa">light</button>
                 <button @click="changemood" data-color="#000">dark</button>
-            </div>
+            </div> -->
         </ul>
     </div>
 </template>
@@ -59,13 +59,18 @@ export default {
 <style lang="scss">
 .header {
     display: list-item;
-    background-color: var(--light);
+    // background-color: var(--light);
+    background-color: #333;
     padding: 20px;
 }
 .logo {
     float: left;
     color: #fff;
     margin-bottom: 0;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: #0dcaf0;
+    text-shadow: 2px 2px #ccc;
 }
 ul {
     float: right;
@@ -100,5 +105,22 @@ ul {
 .moodcolors :nth-child(2) {
     background-color: #000;
     color: #fff;
+}
+.carousel-item {
+    background-size: cover !important;
+    height: 350px;
+
+    .w-100 {
+        filter: brightness(0.4);
+    }
+    .d-md-block {
+        background-color: #ffffff47;
+        border-radius: 1px;
+        box-shadow: 12px 13px 0px 5px #0dcaf0;
+        margin-bottom: 100px;
+        h4 {
+            font-weight: bold;
+        }
+    }
 }
 </style>

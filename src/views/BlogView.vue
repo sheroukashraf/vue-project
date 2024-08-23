@@ -4,7 +4,7 @@
         <p>{{ PageDesc }}</p>
         <div class="container">
             <div class="row">
-                <div class="col-md-8 posts">
+                <div class="col-md-12 posts">
                     <PostsComp
                         v-for="post in posts"
                         v-bind:key="post.id"
@@ -16,7 +16,6 @@
                         :category="post.category"
                     />
                 </div>
-                <div class="col-md-4 sidebar"><SidebarComp /></div>
             </div>
         </div>
     </div>
@@ -24,7 +23,6 @@
 
 <script>
 import PostsComp from "../components/BlogComps/PostsComp.vue";
-import SidebarComp from "../components/BlogComps/SidebarComp.vue";
 import JsonPost from "../json/blog_posts.json";
 
 export default {
@@ -41,7 +39,6 @@ export default {
     name: "BlogView",
     components: {
         PostsComp,
-        SidebarComp,
     },
 };
 </script>

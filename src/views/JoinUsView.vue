@@ -24,6 +24,7 @@
             <div class="input-group btnform">
                 <ButtonForm text="Login" :disable="isAble" />
             </div>
+            <h2 :hidden="!showMsg">Welcome {{ username.value }}</h2>
         </div>
     </form>
 </template>
@@ -39,6 +40,7 @@ export default {
     },
     data: function () {
         return {
+            showMsg: false,
             username: {
                 rules: {
                     value: "name",
@@ -68,6 +70,7 @@ export default {
                 username: this.username.value,
                 password: this.password.value,
             });
+            this.showMsg = true;
         },
     },
     computed: {
