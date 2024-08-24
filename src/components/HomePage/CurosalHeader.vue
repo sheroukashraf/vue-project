@@ -1,10 +1,11 @@
 <template>
-    <div id="carouselHome" class="carousel slide">
+    <div id="carouselHome" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div
                 v-for="(carousel, index) in carousels"
                 :key="index"
-                :class="['carousel-item', carousel.active]"
+                :class="['carousel-item', { active: index === 0 }]"
+                data-bs-interval="5000"
             >
                 <img
                     :src="carousel.src"
@@ -47,13 +48,12 @@ export default {
         return {
             carousels: [
                 {
-                    src: back1,
+                    src: back2,
                     title: "Vue Projects",
                     desc: "Small Projects Made With Vue3",
-                    active: "active",
                 },
                 {
-                    src: back2,
+                    src: back1,
                     title: "Small Video App",
                     desc: "Upload - Control - Delete",
                 },
@@ -71,7 +71,14 @@ export default {
 .carousel-item {
     background-size: cover !important;
     height: 350px;
-
+    transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1),
+        opacity 0.3s ease-in-out, filter 0.3s ease-in-out !important;
+    filter: blur(0.6px);
+    transform: scale(1.1);
+    &.active {
+        filter: blur(0px);
+        transform: scale(1);
+    }
     .w-100 {
         filter: brightness(0.4);
     }
@@ -80,6 +87,7 @@ export default {
         border-radius: 1px;
         box-shadow: 12px 13px 0px 5px #0dcaf0;
         margin-bottom: 100px;
+        text-transform: uppercase;
         h4 {
             font-weight: bold;
         }
